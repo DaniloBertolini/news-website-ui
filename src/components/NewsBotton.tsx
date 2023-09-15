@@ -2,12 +2,14 @@ import { Item } from "../types";
 
 type NewsType = {
   dataNews: Item[]
+  limit: number
 }
 
-function NewsBotton({dataNews}: NewsType) {
+function NewsBotton({dataNews, limit}: NewsType) {
+  const limitedNews = dataNews.slice(1, limit)
   return (
     <div>
-      {dataNews.map((item, index) => {
+      {limitedNews.map((item, index) => {
         return (
           <div key={index}>
             {/* <span>Noticia mais recente</span> */}
