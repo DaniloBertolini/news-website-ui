@@ -10,7 +10,7 @@ function Home() {
       <h1>Home</h1>
       { themeContext && <News dataNews={ themeContext.items[0]}/> }
       <p>This is the home page</p>
-      {/* { themeContext && <NewsBotton dataNews={ themeContext.items}/>} */}
+      { themeContext && <NewsBotton dataNews={ themeContext.items}/>}
     </div>
   )
 }
