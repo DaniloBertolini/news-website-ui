@@ -38,7 +38,7 @@ function News({dataNews, setFavorites}: NewsTypeNewTop) {
         : <p> {(result > 1
             ? result + ' dias'
             : 1 + ' dia')} atrás</p>}
-      <button>
+      <button className="bg-green-500 p-2 rounded-md drop-shadow-button font-medium">
         <a href={dataNews.link}>Leia a notícia aqui</a>
       </button>
     </div>

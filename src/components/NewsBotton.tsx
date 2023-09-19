@@ -17,7 +17,7 @@ function NewsBotton({dataNews, limit, setFavorites}: NewsTypeNewsBotton) {
               : <p> {(publicationDayFunction(item.data_publicacao) > 1
                 ? publicationDayFunction(item.data_publicacao) + ' dias'
                 : 1 + ' dia')} atrás</p>}
-            <button>
+            <button  className="bg-green-500 p-2 rounded-md drop-shadow-button font-medium">
               <a href={item.link}>Leia a notícia aqui</a>
             </button>
             <button onClick={ () => {
