@@ -11,7 +11,7 @@ const useLocalStorage = (key: string, initialValue: string): UseLocalStorageRetu
     localStorage.setItem(key, newValue)
   }
 
-  return { value, updateValue}
+  return { value, updateValue }
 }
 
 export default useLocalStorage;
