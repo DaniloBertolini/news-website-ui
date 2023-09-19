@@ -59,7 +59,7 @@ function Home() {
   }
 
   return (
-    <div>
+    <main>
       <h1>Home</h1>
       { themeContext && <News dataNews={ themeContext.items[0] } setFavorites={ setFavorites }/> }
       <button onClick={ () => handleClickNewsToPass('all') }>Mais Recentes</button>
@@ -69,7 +69,7 @@ function Home() {
       { themeContext && <NewsBotton dataNews={ newsToPass } limit={ limit } setFavorites={ setFavorites } />}
 
       <button disabled={ limit >= newsToPass.length } onClick={ () => setLimit(limit + 10) }>MAIS NOTÍCIAS</button>
-    </div>
+    </main>
   )
 }
 

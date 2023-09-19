@@ -8,7 +8,7 @@ function NewsBotton({dataNews, limit, setFavorites}: NewsTypeNewsBotton) {
     <div>
       {limitedNews.map((item, index) => {
         return (
-          <div key={index}>
+          <section key={index}>
             <h2>{item.titulo}</h2>
             <p>{item.introducao}</p>
             {
@@ -24,7 +24,7 @@ function NewsBotton({dataNews, limit, setFavorites}: NewsTypeNewsBotton) {
               
               setFavorites(item)
             }}>favorito</button>
-          </div>
+          </section>
         )
       })}
     </div>

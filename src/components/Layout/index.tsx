@@ -4,11 +4,11 @@ import Footer from "../Footer"
 
 function Layout() {
   return (
-    <div>
+    <>
       <NavBar />
       <Outlet />
       <Footer />
-    </div>
+    </>
   )
 }
 
