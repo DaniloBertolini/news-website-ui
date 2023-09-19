@@ -25,6 +25,8 @@ function Home() {
       setNewsFavorites(newNewsFavorites)
     }    
   }
+  console.log(newsFavorites);
+  
 
   const handleClickNewsToPass = (type: string) => {
     if(themeContext) {

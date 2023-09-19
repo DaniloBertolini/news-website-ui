@@ -22,9 +22,10 @@ function NewsBotton({dataNews, limit, setFavorites}: NewsTypeNewsBotton) {
             <button>
               <a href={item.link}>Leia a notícia aqui</a>
             </button>
-            <button onClick={ () => dataNews.forEach((item) => {
+            <button onClick={ () => {
+              
               setFavorites(item)
-            })}>favorito</button>
+            }}>favorito</button>
           </div>
         )
       })}
