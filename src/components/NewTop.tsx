@@ -1,24 +1,28 @@
-import { Item } from "../types";
+import { useEffect, useState } from "react";
+import { NewsTypeNewTop, ObjPublicationDay } from "../types";
+import { publicationDayFunction } from "../utils/utils";
 
-type NewsType = {
-  dataNews: Item
+const obj = {
+  result: 0
 }
 
-function News({dataNews}: NewsType) {
+function News({dataNews}: NewsTypeNewTop) {
+  const [publicationDay, setPublicationDay] = useState<ObjPublicationDay>(obj)
+  const { result } = publicationDay
   let newsImage = ''
-  const dataHoje = new Date
 
   const dataNewsImage = dataNews.imagens.split("\\");
   if (dataNewsImage) {
-    const dataNewsImageStart = dataNewsImage[1] + dataNewsImage[2] + dataNewsImage[3];
-    const dataNewsImageEnd = dataNewsImage[4]
-    newsImage = `https://agenciadenoticias.ibge.gov.br/images${dataNewsImageStart}${dataNewsImageEnd.split('jpg')[0]}jpg`;
+    newsImage = `https://agenciadenoticias.ibge.gov.br/${JSON.parse(dataNews.imagens).image_intro}`
+    
   }
 
-  const dayPublished = dataNews.data_publicacao.split(' ')[0].split('/');
-  const dayNow = new Date(dataHoje.getFullYear(), dataHoje.getMonth(), dataHoje.getDate())
-
-  const dayPublishedFormated = new Date(`${dayPublished[2]}-${dayPublished[1]}-${dayPublished[0]}Z-03:00`)
+  useEffect(() => {
+    const result = publicationDayFunction(dataNews.data_publicacao)
+     setPublicationDay({
+      result
+    })
+  }, [dataNews])
 
   return (
     <div>
@@ -27,10 +31,10 @@ function News({dataNews}: NewsType) {
       <button>favorito</button>
       <h2>{dataNews.titulo}</h2>
       <p>{dataNews.introducao}</p>
-      {Number(dayNow) - Number(dayPublishedFormated) === 0
+      {result === 0
         ? <p>Hoje</p>
-        : <p> {(Number(dayNow) - Number(dayPublishedFormated) > 1
-            ? Number(dayNow) - Number(dayPublishedFormated) + ' dias'
+        : <p> {(result > 1
+            ? result + ' dias'
             : 1 + ' dia')} atrás</p>}
       <button>
         <a href={dataNews.link}>Leia a notícia aqui</a>

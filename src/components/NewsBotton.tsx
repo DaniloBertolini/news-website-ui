@@ -1,20 +1,24 @@
-import { Item } from "../types";
+import { NewsTypeNewsBotton } from "../types";
+import { publicationDayFunction } from "../utils/utils";
 
-type NewsType = {
-  dataNews: Item[]
-  limit: number
-}
+// const obj = [{}]
 
-function NewsBotton({dataNews, limit}: NewsType) {
+function NewsBotton({dataNews, limit}: NewsTypeNewsBotton) {
   const limitedNews = dataNews.slice(1, limit)
+
   return (
     <div>
       {limitedNews.map((item, index) => {
         return (
           <div key={index}>
-            {/* <span>Noticia mais recente</span> */}
             <h2>{item.titulo}</h2>
             <p>{item.introducao}</p>
+            {
+            publicationDayFunction(item.data_publicacao) === 0
+              ? <p>Hoje</p>
+              : <p> {(publicationDayFunction(item.data_publicacao) > 1
+                ? publicationDayFunction(item.data_publicacao) + ' dias'
+                : 1 + ' dia')} atrás</p>}
             <button>
               <a href={item.link}>Leia a notícia aqui</a>
             </button>

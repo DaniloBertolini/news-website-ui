@@ -23,3 +23,16 @@ export type Item = {
   destaque: boolean;
   link: string;
 }
+
+export type NewsTypeNewTop = {
+  dataNews: Item;
+}
+
+export type ObjPublicationDay = {
+  result: number;
+}
+
+export type NewsTypeNewsBotton = {
+  dataNews: Item[]
+  limit: number
+}
