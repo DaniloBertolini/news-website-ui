@@ -1,27 +1,35 @@
-# React + TypeScript + Vite
+# [Site de Notícias]()
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Uma aplicação para gerenciar uma API das notícias do IBGE, no qual mostra as notícias mais recentes. 
 
-Currently, two official plugins are available:
+## Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [REACT](https://react.dev/)
+- [VITE](https://vitejs.dev/)
+- [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [TYPESCRIPT](https://www.typescriptlang.org/)
+- [REACT ROUTER](https://reactrouter.com/en/main)
 
-## Expanding the ESLint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Notícias mais recentes do IBGE
+- Notícia completo através do link
+- Informação de quantos dias a notícia foi publicada
+- Favoritar as melhores notícias
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Como acessar
+  Pode aceesar através desse [deploy](), ou se preferir na máquina local, pode seguir abaixo.
+  - Abra o terminal e faça o clone.
+  ```bash
+    git clone https://github.com/DaniloBertolini/news-website-ui.git
+  ```
+  - Instale as dependências.
+  ```bash
+    npm install
+  ```
+  - Iniciar o servidor de desenvolvimento.
+  ```bash
+    npm run dev
+  ```
+  - Abra o navegador em [http://localhost:3000](http://localhost:3000).
