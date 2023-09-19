@@ -60,7 +60,6 @@ function Home() {
 
   return (
     <main>
-      <h1>Home</h1>
       { themeContext && <News dataNews={ themeContext.items[0] } setFavorites={ setFavorites }/> }
       <button onClick={ () => handleClickNewsToPass('all') }>Mais Recentes</button>
       <button onClick={ () => handleClickNewsToPass('release') }>Release</button>
