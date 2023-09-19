@@ -25,8 +25,6 @@ function Home() {
       setNewsFavorites(newNewsFavorites)
     }    
   }
-  console.log(newsFavorites);
-  
 
   const handleClickNewsToPass = (type: string) => {
     if(themeContext) {
@@ -37,7 +35,6 @@ function Home() {
           break;
 
         case 'release':
-          // const newsRelease = themeContext.items.filter((item) => item.tipo === 'release')
           setNewsToPass(themeContext.items.filter((item) => item.tipo === 'Release'))
           break;
 
@@ -46,7 +43,6 @@ function Home() {
           break;
 
         case 'favorites':
-          console.log(newsFavorites);          
           setNewsToPass(newsFavorites)
           break;
 

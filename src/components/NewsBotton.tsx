@@ -1,8 +1,6 @@
 import { NewsTypeNewsBotton } from "../types";
 import { publicationDayFunction } from "../utils/utils";
 
-// const obj = [{}]
-
 function NewsBotton({dataNews, limit, setFavorites}: NewsTypeNewsBotton) {
   const limitedNews = dataNews.slice(0, limit)
 
