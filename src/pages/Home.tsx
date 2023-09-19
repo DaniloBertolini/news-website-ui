@@ -7,6 +7,7 @@ import { Item } from "../types";
 function Home() {
   const [limit, setLimit] = useState<number>(10)
   const [newsToPass, setNewsToPass] = useState<Item[]>([])
+  const [newsFavorites, setNewsFavorites] = useState<Item[]>([])
 
   const themeContext = useContext(ThemeContext)
 
@@ -15,6 +16,15 @@ function Home() {
       setNewsToPass(themeContext.items)
     }
   }, [themeContext])
+
+  const setFavorites = (item: Item) => {
+    if (!newsFavorites.includes(item)) {
+      setNewsFavorites([...newsFavorites, item])
+    } else {
+      const newNewsFavorites = newsFavorites.filter((news) => news.id !== item.id)
+      setNewsFavorites(newNewsFavorites)
+    }    
+  }
 
   const handleClickNewsToPass = (type: string) => {
     if(themeContext) {
@@ -34,7 +44,8 @@ function Home() {
           break;
 
         case 'favorites':
-          setNewsToPass(themeContext.items)
+          console.log(newsFavorites);          
+          setNewsToPass(newsFavorites)
           break;
 
         default:
@@ -42,18 +53,18 @@ function Home() {
       }
     }
   }
-  
+
   return (
     <div>
       <h1>Home</h1>
-      { themeContext && <News dataNews={ themeContext.items[0] }/> }
+      { themeContext && <News dataNews={ themeContext.items[0] } setFavorites={ setFavorites }/> }
       <button onClick={ () => handleClickNewsToPass('all') }>Mais recentes</button>
       <button onClick={ () => handleClickNewsToPass('release') }>Release</button>
       <button onClick={ () => handleClickNewsToPass('news') }>Notícia</button>
       <button onClick={ () => handleClickNewsToPass('favorites') }>Favoritas</button>
-      { themeContext && <NewsBotton dataNews={ newsToPass } limit={ limit }/>}
+      { themeContext && <NewsBotton dataNews={ newsToPass } limit={ limit } setFavorites={ setFavorites } />}
 
-      <button disabled={ limit === 100 } onClick={ () => setLimit(limit + 10)}>MAIS NOTÍCIAS</button>
+      <button disabled={ limit >= newsToPass.length } onClick={ () => setLimit(limit + 10) }>MAIS NOTÍCIAS</button>
     </div>
   )
 }

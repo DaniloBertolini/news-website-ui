@@ -26,6 +26,7 @@ export type Item = {
 
 export type NewsTypeNewTop = {
   dataNews: Item;
+  setFavorites: (item: Item) => void;
 }
 
 export type ObjPublicationDay = {
@@ -33,6 +34,7 @@ export type ObjPublicationDay = {
 }
 
 export type NewsTypeNewsBotton = {
-  dataNews: Item[]
-  limit: number
+  dataNews: Item[];
+  limit: number;
+  setFavorites: (item: Item) => void;
 }

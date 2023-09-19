@@ -3,8 +3,8 @@ import { publicationDayFunction } from "../utils/utils";
 
 // const obj = [{}]
 
-function NewsBotton({dataNews, limit}: NewsTypeNewsBotton) {
-  const limitedNews = dataNews.slice(1, limit)
+function NewsBotton({dataNews, limit, setFavorites}: NewsTypeNewsBotton) {
+  const limitedNews = dataNews.slice(0, limit)
 
   return (
     <div>
@@ -22,7 +22,9 @@ function NewsBotton({dataNews, limit}: NewsTypeNewsBotton) {
             <button>
               <a href={item.link}>Leia a notícia aqui</a>
             </button>
-            <button>favorito</button>
+            <button onClick={ () => dataNews.forEach((item) => {
+              setFavorites(item)
+            })}>favorito</button>
           </div>
         )
       })}

@@ -6,7 +6,7 @@ const obj = {
   result: 0
 }
 
-function News({dataNews}: NewsTypeNewTop) {
+function News({dataNews, setFavorites}: NewsTypeNewTop) {
   const [publicationDay, setPublicationDay] = useState<ObjPublicationDay>(obj)
   const { result } = publicationDay
   let newsImage = ''
@@ -28,7 +28,9 @@ function News({dataNews}: NewsTypeNewTop) {
     <div>
       <img src={newsImage} alt="Teste" />
       <span>Noticia mais recente</span>
-      <button>favorito</button>
+      <button 
+      onClick={ () => setFavorites(dataNews)}
+      >favorito</button>
       <h2>{dataNews.titulo}</h2>
       <p>{dataNews.introducao}</p>
       {result === 0
