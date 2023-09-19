@@ -38,3 +38,8 @@ export type NewsTypeNewsBotton = {
   limit: number;
   setFavorites: (item: Item) => void;
 }
+
+export type UseLocalStorageReturn = {
+  value: string,
+  updateValue: (newValue: string) => void
+};

@@ -3,11 +3,15 @@ import News from "../components/NewTop";
 import ThemeContext from "../context/ThemeContext";
 import NewsBotton from "../components/NewsBotton";
 import { Item } from "../types";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 function Home() {
+  const { value, updateValue } = useLocalStorage('favoriteNews', JSON.stringify([]))
+  const favs = JSON.parse(value)
+
   const [limit, setLimit] = useState<number>(10)
   const [newsToPass, setNewsToPass] = useState<Item[]>([])
-  const [newsFavorites, setNewsFavorites] = useState<Item[]>([])
+  const [newsFavorites, setNewsFavorites] = useState<Item[]>(favs)
 
   const themeContext = useContext(ThemeContext)
 
@@ -20,9 +24,11 @@ function Home() {
   const setFavorites = (item: Item) => {
     if (!newsFavorites.includes(item)) {
       setNewsFavorites([...newsFavorites, item])
+      updateValue(JSON.stringify([...newsFavorites, item]))
     } else {
       const newNewsFavorites = newsFavorites.filter((news) => news.id !== item.id)
       setNewsFavorites(newNewsFavorites)
+      updateValue(JSON.stringify(newNewsFavorites))
     }    
   }
 
@@ -56,7 +62,7 @@ function Home() {
     <div>
       <h1>Home</h1>
       { themeContext && <News dataNews={ themeContext.items[0] } setFavorites={ setFavorites }/> }
-      <button onClick={ () => handleClickNewsToPass('all') }>Mais recentes</button>
+      <button onClick={ () => handleClickNewsToPass('all') }>Mais Recentes</button>
       <button onClick={ () => handleClickNewsToPass('release') }>Release</button>
       <button onClick={ () => handleClickNewsToPass('news') }>Notícia</button>
       <button onClick={ () => handleClickNewsToPass('favorites') }>Favoritas</button>
