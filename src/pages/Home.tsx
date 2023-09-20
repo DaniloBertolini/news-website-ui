@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import News from "../components/NewTop";
 import ThemeContext from "../context/ThemeContext";
 import NewsBotton from "../components/NewsBotton";
 import { Item } from "../types";
@@ -60,8 +59,6 @@ function Home() {
 
   return (
     <main className="flex flex-col">
-      { newsToPass && <News dataNews={ newsToPass[0] } setFavorites={ setFavorites } newsFavorites={ newsFavorites }/> }
-
       <div>
         <button onClick={ () => handleClickNewsToPass('all') }>Mais Recentes</button>
         <button onClick={ () => handleClickNewsToPass('release') }>Release</button>

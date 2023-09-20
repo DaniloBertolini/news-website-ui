@@ -2,7 +2,7 @@ import { NewsTypeNewsBotton } from "../types";
 import { publicationDayFunction } from "../utils/utils";
 
 function NewsBotton({dataNews, limit, setFavorites, newsFavorites }: NewsTypeNewsBotton) {
-  const limitedNews = dataNews.slice(1, limit)
+  const limitedNews = dataNews.slice(0, limit)
   return (
     <div>
       {limitedNews.map((item, index) => {
