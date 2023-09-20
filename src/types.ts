@@ -37,6 +37,7 @@ export type NewsTypeNewsBotton = {
   dataNews: Item[];
   limit: number;
   setFavorites: (item: Item) => void;
+  sliceStart: string;
 }
 
 export type UseLocalStorageReturn = {

@@ -37,7 +37,8 @@ function Home() {
 
       switch (type) {
         case 'all':
-          setNewsToPass(themeContext.items)          
+          setNewsToPass(themeContext.items)
+          
           break;
 
         case 'release':
@@ -59,15 +60,19 @@ function Home() {
   }
 
   return (
-    <main>
+    <main className="flex flex-col">
       { themeContext && <News dataNews={ themeContext.items[0] } setFavorites={ setFavorites }/> }
-      <button onClick={ () => handleClickNewsToPass('all') }>Mais Recentes</button>
-      <button onClick={ () => handleClickNewsToPass('release') }>Release</button>
-      <button onClick={ () => handleClickNewsToPass('news') }>Notícia</button>
-      <button onClick={ () => handleClickNewsToPass('favorites') }>Favoritas</button>
+
+      <div>
+        <button onClick={ () => handleClickNewsToPass('all') }>Mais Recentes</button>
+        <button onClick={ () => handleClickNewsToPass('release') }>Release</button>
+        <button onClick={ () => handleClickNewsToPass('news') }>Notícia</button>
+        <button onClick={ () => handleClickNewsToPass('favorites') }>Favoritas</button>
+      </div>
+
       { themeContext && <NewsBotton dataNews={ newsToPass } limit={ limit } setFavorites={ setFavorites } />}
 
-      <button disabled={ limit >= newsToPass.length } onClick={ () => setLimit(limit + 10) }>MAIS NOTÍCIAS</button>
+      <button className="border border-red-500 text-red-500 py-4 px-8 w-fit self-center mb-7" disabled={ limit >= newsToPass.length } onClick={ () => setLimit(limit + 10) }>MAIS NOTÍCIAS</button>
     </main>
   )
 }

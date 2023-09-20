@@ -9,13 +9,6 @@ const obj = {
 function News({dataNews, setFavorites}: NewsTypeNewTop) {
   const [publicationDay, setPublicationDay] = useState<ObjPublicationDay>(obj)
   const { result } = publicationDay
-  let newsImage = ''
-
-  const dataNewsImage = dataNews.imagens.split("\\");
-  if (dataNewsImage) {
-    newsImage = `https://agenciadenoticias.ibge.gov.br/${JSON.parse(dataNews.imagens).image_intro}`
-    
-  }
 
   useEffect(() => {
     const result = publicationDayFunction(dataNews.data_publicacao)
@@ -26,7 +19,7 @@ function News({dataNews, setFavorites}: NewsTypeNewTop) {
 
   return (
     <div>
-      <img src={newsImage} alt="Teste" />
+      <img src={`https://agenciadenoticias.ibge.gov.br/${JSON.parse(dataNews.imagens).image_intro}`} alt="Teste" />
       <span>Noticia mais recente</span>
       <button 
       onClick={ () => setFavorites(dataNews)}

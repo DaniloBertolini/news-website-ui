@@ -2,15 +2,16 @@ import { NewsTypeNewsBotton } from "../types";
 import { publicationDayFunction } from "../utils/utils";
 
 function NewsBotton({dataNews, limit, setFavorites}: NewsTypeNewsBotton) {
-  const limitedNews = dataNews.slice(0, limit)
+  const limitedNews = dataNews.slice(1, limit)
 
   return (
     <div>
       {limitedNews.map((item, index) => {
         return (
-          <section key={index}>
-            <h2>{item.titulo}</h2>
-            <p>{item.introducao}</p>
+          <section className="m-8" key={index}>
+            <img src={`https://agenciadenoticias.ibge.gov.br/${JSON.parse(item.imagens).image_intro}`} alt="imagem noticia" />
+            <h2 className="text-medium font-bold">{item.titulo}</h2>
+            <p className="text-sm">{item.introducao}</p>
             {
             publicationDayFunction(item.data_publicacao) === 0
               ? <p>Hoje</p>
