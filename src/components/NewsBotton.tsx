@@ -4,7 +4,7 @@ import { publicationDayFunction } from "../utils/utils";
 function NewsBotton({dataNews, limit, setFavorites, newsFavorites }: NewsTypeNewsBotton) {
   const limitedNews = dataNews.slice(0, limit)
   return (
-    <div>
+    <div className="mt-36">
       {limitedNews.map((item, index) => {
         return (
           <section className="p-4 m-4 border-2 shadow-button bg-white" key={index}>

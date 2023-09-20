@@ -59,11 +59,13 @@ function Home() {
 
   return (
     <main className="flex flex-col">
-      <div>
-        <button onClick={ () => handleClickNewsToPass('all') }>Mais Recentes</button>
-        <button onClick={ () => handleClickNewsToPass('release') }>Release</button>
-        <button onClick={ () => handleClickNewsToPass('news') }>Notícia</button>
-        <button onClick={ () => handleClickNewsToPass('favorites') }>Favoritas</button>
+      <div className="relative">
+        <div className="fixed top-20 left-0 right-0 flex justify-center gap-4 bg-verdigris py-3 text-azulClaro drop-shadow-lg">
+          <button onClick={ () => handleClickNewsToPass('all') }>Mais Recentes</button>
+          <button onClick={ () => handleClickNewsToPass('release') }>Release</button>
+          <button onClick={ () => handleClickNewsToPass('news') }>Notícia</button>
+          <button onClick={ () => handleClickNewsToPass('favorites') }>Favoritas</button>
+        </div>
       </div>
 
       { newsToPass && <NewsBotton dataNews={ newsToPass } limit={ limit } setFavorites={ setFavorites } newsFavorites={ newsFavorites }/>}
