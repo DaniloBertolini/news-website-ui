@@ -8,13 +8,16 @@ export default {
     extend: {
       colors: {
         'verdigris': '#28afb0',
-        'midnightGreen': '#164E63'
+        'midnightGreen': '#164E63',
+        'azulClaro': '#31E8FF',
       },
-      dropShadow: {
-        'button': '0px 3px 3px gray'
+      boxShadow: {
+        'button': '5px 5px 1px gray'
+      },
+      backgroundImage: {
+        'test': "linear-gradient(to right top, #e3f9ff, #dbf9ff, #d3f9ff, #cbfaff, #c2faff);",
       }
     },
   },
   plugins: [],
 }
-
