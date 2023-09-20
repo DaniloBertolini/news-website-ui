@@ -7,11 +7,10 @@ import useLocalStorage from "../hooks/useLocalStorage";
 
 function Home() {
   const { value, updateValue } = useLocalStorage('favoriteNews', JSON.stringify([]))
-  const favs = JSON.parse(value)
 
   const [limit, setLimit] = useState<number>(10)
   const [newsToPass, setNewsToPass] = useState<Item[]>([])
-  const [newsFavorites, setNewsFavorites] = useState<Item[]>(favs)
+  const [newsFavorites, setNewsFavorites] = useState<Item[]>(JSON.parse(localStorage.getItem('favoriteNews') || '[]'))
 
   const themeContext = useContext(ThemeContext)
 
@@ -21,15 +20,18 @@ function Home() {
     }
   }, [themeContext])
 
-  const setFavorites = (item: Item) => {
-    if (!newsFavorites.includes(item)) {
-      setNewsFavorites([...newsFavorites, item])
-      updateValue(JSON.stringify([...newsFavorites, item]))
-    } else {
+  
+
+  const setFavorites = (item: Item) => {    
+    if (newsFavorites.includes(item)) {
       const newNewsFavorites = newsFavorites.filter((news) => news.id !== item.id)
       setNewsFavorites(newNewsFavorites)
       updateValue(JSON.stringify(newNewsFavorites))
-    }    
+    } else {
+      const sortFavorites = [...newsFavorites, item].sort((a, b) => b.id - a.id)
+      setNewsFavorites(sortFavorites)
+      updateValue(JSON.stringify(sortFavorites))
+    }
   }
 
   const handleClickNewsToPass = (type: string) => {
@@ -38,7 +40,6 @@ function Home() {
       switch (type) {
         case 'all':
           setNewsToPass(themeContext.items)
-          
           break;
 
         case 'release':
@@ -61,7 +62,9 @@ function Home() {
 
   return (
     <main className="flex flex-col">
-      { themeContext && <News dataNews={ themeContext.items[0] } setFavorites={ setFavorites }/> }
+      <button onClick={ () => console.log(newsFavorites)}>TESTE</button>
+
+      { newsToPass && <News dataNews={ newsToPass[0] } setFavorites={ setFavorites }/> }
 
       <div>
         <button onClick={ () => handleClickNewsToPass('all') }>Mais Recentes</button>
@@ -70,7 +73,7 @@ function Home() {
         <button onClick={ () => handleClickNewsToPass('favorites') }>Favoritas</button>
       </div>
 
-      { themeContext && <NewsBotton dataNews={ newsToPass } limit={ limit } setFavorites={ setFavorites } />}
+      { newsToPass && <NewsBotton dataNews={ newsToPass } limit={ limit } setFavorites={ setFavorites } />}
 
       <button className="border border-red-500 text-red-500 py-4 px-8 w-fit self-center mb-7" disabled={ limit >= newsToPass.length } onClick={ () => setLimit(limit + 10) }>MAIS NOTÍCIAS</button>
     </main>
