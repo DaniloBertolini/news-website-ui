@@ -1,12 +1,8 @@
-import useLocalStorage from "../hooks/useLocalStorage";
-import { Item, NewsTypeNewsBotton } from "../types";
+import { NewsTypeNewsBotton } from "../types";
 import { publicationDayFunction } from "../utils/utils";
 
-function NewsBotton({dataNews, limit, setFavorites }: NewsTypeNewsBotton) {
+function NewsBotton({dataNews, limit, setFavorites, newsFavorites }: NewsTypeNewsBotton) {
   const limitedNews = dataNews.slice(1, limit)
-  const { value } = useLocalStorage('favoriteNews', JSON.stringify([]))
-  const favs = JSON.parse(value)
-
   return (
     <div>
       {limitedNews.map((item, index) => {
@@ -27,7 +23,7 @@ function NewsBotton({dataNews, limit, setFavorites }: NewsTypeNewsBotton) {
             <button onClick={ () => {
               setFavorites(item)
             }}>
-              {(favs.includes((i: Item) => i.id === item.id)) ? (
+              {(newsFavorites.includes(item)) ? (
                 <img src="/heartFill.svg" alt="svg favorite" />
                 ) : ( <img src="/heartRegular.svg" alt="svg favorite" />
                 ) }

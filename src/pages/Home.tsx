@@ -10,7 +10,7 @@ function Home() {
 
   const [limit, setLimit] = useState<number>(10)
   const [newsToPass, setNewsToPass] = useState<Item[]>([])
-  const [newsFavorites, setNewsFavorites] = useState<Item[]>(JSON.parse(localStorage.getItem('favoriteNews') || '[]'))
+  const [newsFavorites, setNewsFavorites] = useState<Item[]>(JSON.parse(value))
 
   const themeContext = useContext(ThemeContext)
 
@@ -20,10 +20,8 @@ function Home() {
     }
   }, [themeContext])
 
-  
-
   const setFavorites = (item: Item) => {    
-    if (newsFavorites.includes(item)) {
+    if (newsFavorites.find((not) => (not.id === item.id))) {
       const newNewsFavorites = newsFavorites.filter((news) => news.id !== item.id)
       setNewsFavorites(newNewsFavorites)
       updateValue(JSON.stringify(newNewsFavorites))
@@ -62,9 +60,7 @@ function Home() {
 
   return (
     <main className="flex flex-col">
-      <button onClick={ () => console.log(newsFavorites)}>TESTE</button>
-
-      { newsToPass && <News dataNews={ newsToPass[0] } setFavorites={ setFavorites }/> }
+      { newsToPass && <News dataNews={ newsToPass[0] } setFavorites={ setFavorites } newsFavorites={ newsFavorites }/> }
 
       <div>
         <button onClick={ () => handleClickNewsToPass('all') }>Mais Recentes</button>
@@ -73,7 +69,7 @@ function Home() {
         <button onClick={ () => handleClickNewsToPass('favorites') }>Favoritas</button>
       </div>
 
-      { newsToPass && <NewsBotton dataNews={ newsToPass } limit={ limit } setFavorites={ setFavorites } />}
+      { newsToPass && <NewsBotton dataNews={ newsToPass } limit={ limit } setFavorites={ setFavorites } newsFavorites={ newsFavorites }/>}
 
       <button className="border border-red-500 text-red-500 py-4 px-8 w-fit self-center mb-7" disabled={ limit >= newsToPass.length } onClick={ () => setLimit(limit + 10) }>MAIS NOTÍCIAS</button>
     </main>

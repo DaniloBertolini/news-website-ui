@@ -27,6 +27,7 @@ export type Item = {
 export type NewsTypeNewTop = {
   dataNews: Item;
   setFavorites: (item: Item) => void;
+  newsFavorites: Item[];
 }
 
 export type ObjPublicationDay = {
@@ -37,6 +38,7 @@ export type NewsTypeNewsBotton = {
   dataNews: Item[];
   limit: number;
   setFavorites: (item: Item) => void;
+  newsFavorites: Item[];
 }
 
 export type UseLocalStorageReturn = {
