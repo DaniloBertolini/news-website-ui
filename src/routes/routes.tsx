@@ -6,7 +6,7 @@ function routes() {
   return (
     <>
       <Routes>
-        <Route path="/" Component={ Layout } >
+        <Route path="/news-website-ui" Component={ Layout } >
           <Route index Component={ Home } />
         </Route>
       </Routes>
