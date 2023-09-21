@@ -17,6 +17,9 @@ export default {
       backgroundImage: {
         'test': "linear-gradient(to right top, #e3f9ff, #dbf9ff, #d3f9ff, #cbfaff, #c2faff);",
       },
+      width: {
+        '328px': '328px',
+      },
     },
   },
   plugins: [],

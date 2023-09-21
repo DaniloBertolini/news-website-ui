@@ -4,12 +4,12 @@ import { publicationDayFunction } from "../utils/utils";
 function NewsBotton({dataNews, limit, setFavorites, newsFavorites }: NewsTypeNewsBotton) {
   const limitedNews = dataNews.slice(0, limit)
   return (
-    <div className="mt-36">
+    <div className="mt-32 grid place-items-center md:grid-cols-2 lg:grid-cols-3">
       {limitedNews.map((item, index) => {
         return (
-          <section className="p-4 m-4 border-2 shadow-button bg-white" key={index}>
+          <section className="p-4 my-8 md:my-12 lg:my-20 w-328px border-2 shadow-button bg-white" key={index}>
             <img src={`https://agenciadenoticias.ibge.gov.br/${JSON.parse(item.imagens).image_intro}`} alt="imagem noticia" />
-            <h2  className="text-md my-4 text-justify font-bold">{item.titulo}</h2>
+            <h2  className="text-md my-4 text-justify font-bold h-20">{item.titulo}</h2>
             <p className="text-sm mb-4 text-justify">{item.introducao}</p>
 
             <div className="w-full border-t border-verdigris" />
