@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import './App.css'
 import ThemeContext from './context/ThemeContext'
-import Routes from './routes/routes'
 import { fetchURL } from './utils/utils'
 import { FetchApi } from './types'
+import NavBar from './components/NavBar'
+import Footer from './components/Footer'
+import Home from './pages/Home'
 
 function App() {
   const [news, setNews] = useState<FetchApi>()
@@ -18,7 +19,11 @@ function App() {
 
   return (
     <ThemeContext.Provider value={ news }>
-      <Routes />
+      <body className="bg-test">
+        <NavBar />
+        <Home />
+        <Footer />
+      </body>
     </ThemeContext.Provider>
   )
 }
