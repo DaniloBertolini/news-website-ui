@@ -7,6 +7,7 @@ import useLocalStorage from "../hooks/useLocalStorage";
 function Home() {
   const { value, updateValue } = useLocalStorage('favoriteNews', JSON.stringify([]))
 
+  const [theme, setTheme] = useState('MAIS RECENTES')
   const [limit, setLimit] = useState<number>(10)
   const [newsToPass, setNewsToPass] = useState<Item[]>([])
   const [newsFavorites, setNewsFavorites] = useState<Item[]>(JSON.parse(value))
@@ -16,6 +17,7 @@ function Home() {
   useEffect(() => {
     if (themeContext) {
       setNewsToPass(themeContext.items)
+      setTheme('MAIS RECENTES')
     }
   }, [themeContext])
 
@@ -37,18 +39,22 @@ function Home() {
       switch (type) {
         case 'all':
           setNewsToPass(themeContext.items)
+          setTheme('MAIS RECENTES')
           break;
 
         case 'release':
           setNewsToPass(themeContext.items.filter((item) => item.tipo === 'Release'))
+          setTheme('RELEASE')
           break;
 
         case 'news':
           setNewsToPass(themeContext.items.filter((item) => item.tipo === 'Notícia'))
+          setTheme('NOTÍCIA')
           break;
 
         case 'favorites':
           setNewsToPass(newsFavorites)
+          setTheme('FAVORITAS')
           break;
 
         default:
@@ -59,6 +65,7 @@ function Home() {
 
   return (
     <main className="flex flex-col min-h-screen">
+      <h2 className="pt-48 self-center text-2xl text-">{ theme }</h2>
       <div className="relative">
         <div className="fixed top-20 left-0 right-0 flex justify-center gap-4 md:gap-20 lg:gap-36 bg-verdigris py-3 text-azulClaro drop-shadow-lg">
           <button onClick={ () => handleClickNewsToPass('all') }>Mais Recentes</button>
