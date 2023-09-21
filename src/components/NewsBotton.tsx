@@ -35,7 +35,7 @@ function NewsBotton({dataNews, limit, setFavorites, newsFavorites }: NewsTypeNew
                 setFavorites(item)
               }}>
                 {(newsFavorites.includes(item)) ? (
-                  <img src={ heartFillIcon } alt="svg favorite" />
+                  <img className="animate-spin" src={ heartFillIcon } alt="svg favorite" />
                   ) : ( <img src={ heartRegularIcon } alt="svg favorite" />
                   ) }
               </button>

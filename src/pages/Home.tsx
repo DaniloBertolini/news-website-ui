@@ -66,7 +66,7 @@ function Home() {
 
   return (
     <main className="flex flex-col min-h-screen">
-      <h2 className="pt-48 self-center text-2xl text-">{ theme }</h2>
+      <h2 className="pt-48 self-center text-2xl">{ theme }</h2>
       <div className="relative">
         <div className="fixed top-20 left-0 right-0 flex justify-center gap-4 md:gap-20 lg:gap-36 bg-verdigris py-3 text-azulClaro drop-shadow-lg">
           <button onClick={ () => handleClickNewsToPass('all') }>Mais Recentes</button>
