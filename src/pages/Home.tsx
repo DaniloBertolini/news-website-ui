@@ -25,7 +25,9 @@ function Home() {
     if (newsFavorites.find((not) => (not.id === item.id))) {
       const newNewsFavorites = newsFavorites.filter((news) => news.id !== item.id)
       setNewsFavorites(newNewsFavorites)
-      setNewsToPass(newNewsFavorites)
+      if (theme === 'FAVORITAS') {
+        setNewsToPass(newNewsFavorites)
+      }
       updateValue(JSON.stringify(newNewsFavorites))
     } else {
       const sortFavorites = [...newsFavorites, item].sort((a, b) => b.id - a.id)
