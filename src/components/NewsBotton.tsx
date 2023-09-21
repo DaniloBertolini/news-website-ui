@@ -8,9 +8,9 @@ function NewsBotton({dataNews, limit, setFavorites, newsFavorites }: NewsTypeNew
       {limitedNews.map((item, index) => {
         return (
           <section className="p-4 my-8 md:my-12 lg:my-20 w-328px border-2 shadow-button bg-white" key={index}>
-            <img src={`https://agenciadenoticias.ibge.gov.br/${JSON.parse(item.imagens).image_intro}`} alt="imagem noticia" />
+            <img src={`https://agenciadenoticias.ibge.gov.br/${JSON.parse(item.imagens).image_intro}`} className="w-292px h-175px" alt="imagem noticia" />
             <h2  className="text-md my-4 text-justify font-bold h-20">{item.titulo}</h2>
-            <p className="text-sm mb-4 text-justify">{item.introducao}</p>
+            <p className="text-sm mb-4 text-justify h-36">{item.introducao}</p>
 
             <div className="w-full border-t border-verdigris" />
 

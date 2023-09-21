@@ -19,7 +19,11 @@ export default {
       },
       width: {
         '328px': '328px',
+        '292px': '292px'
       },
+      height: {
+        '175px': '175px',
+      }
     },
   },
   plugins: [],
