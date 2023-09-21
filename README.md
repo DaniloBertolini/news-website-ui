@@ -10,6 +10,7 @@ Uma aplicação para gerenciar uma API das notícias do IBGE, no qual mostra as 
 - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
 - [TYPESCRIPT](https://www.typescriptlang.org/)
 - [REACT ROUTER](https://reactrouter.com/en/main)
+- [TAILWIND](https://tailwindcss.com/)
 
 ## Funcionalidades
 
@@ -19,7 +20,7 @@ Uma aplicação para gerenciar uma API das notícias do IBGE, no qual mostra as 
 - Favoritar as melhores notícias
 
 ## Como acessar
-  Pode aceesar através desse [deploy](), ou se preferir na máquina local, pode seguir abaixo.
+  Pode acessar através desse [deploy](), ou se preferir na máquina local, pode seguir abaixo.
   - Abra o terminal e faça o clone.
   ```bash
     git clone https://github.com/DaniloBertolini/news-website-ui.git
