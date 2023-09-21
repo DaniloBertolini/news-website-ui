@@ -1,4 +1,4 @@
-# [Site de Notícias]()
+# [Site de Notícias](https://danilobertolini.github.io/news-website-ui/)
 
 Uma aplicação para gerenciar uma API das notícias do IBGE, no qual mostra as notícias mais recentes. 
 
@@ -20,7 +20,7 @@ Uma aplicação para gerenciar uma API das notícias do IBGE, no qual mostra as 
 - Favoritar as melhores notícias
 
 ## Como acessar
-  Pode acessar através desse [deploy](), ou se preferir na máquina local, pode seguir abaixo.
+  Pode acessar através desse [deploy](https://danilobertolini.github.io/news-website-ui/), ou se preferir na máquina local, pode seguir abaixo.
   - Abra o terminal e faça o clone.
   ```bash
     git clone https://github.com/DaniloBertolini/news-website-ui.git
