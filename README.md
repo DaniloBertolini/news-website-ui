@@ -9,7 +9,6 @@ Uma aplicação para gerenciar uma API das notícias do IBGE, no qual mostra as 
 - [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
 - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
 - [TYPESCRIPT](https://www.typescriptlang.org/)
-- [REACT ROUTER](https://reactrouter.com/en/main)
 - [TAILWIND](https://tailwindcss.com/)
 
 ## Funcionalidades
