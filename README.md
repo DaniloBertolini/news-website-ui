@@ -10,7 +10,6 @@ Uma aplicação para gerenciar uma API das notícias do IBGE, no qual mostra as 
 - [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS)
 - [TYPESCRIPT](https://www.typescriptlang.org/)
 - [TAILWIND](https://tailwindcss.com/)
-- [RTL](https://testing-library.com/)
 
 ## Funcionalidades
 
