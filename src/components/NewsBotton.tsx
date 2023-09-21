@@ -1,5 +1,7 @@
 import { NewsTypeNewsBotton } from "../types";
 import { publicationDayFunction } from "../utils/utils";
+import heartRegularIcon from '/heartRegular.svg'
+import heartFillIcon from '/heartFill.svg'
 
 function NewsBotton({dataNews, limit, setFavorites, newsFavorites }: NewsTypeNewsBotton) {
   const limitedNews = dataNews.slice(0, limit)
@@ -26,8 +28,8 @@ function NewsBotton({dataNews, limit, setFavorites, newsFavorites }: NewsTypeNew
                 setFavorites(item)
               }}>
                 {(newsFavorites.includes(item)) ? (
-                  <img src="/heartFill.svg" alt="svg favorite" />
-                  ) : ( <img src="/heartRegular.svg" alt="svg favorite" />
+                  <img src={ heartFillIcon } alt="svg favorite" />
+                  ) : ( <img src={ heartRegularIcon } alt="svg favorite" />
                   ) }
               </button>
             </div>
