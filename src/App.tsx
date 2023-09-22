@@ -19,7 +19,7 @@ function App() {
 
   return (
     <ThemeContext.Provider value={ news }>
-      <body className="bg-test">
+      <body className="bg-grandientColor">
         <NavBar />
         <Home />
         <Footer />

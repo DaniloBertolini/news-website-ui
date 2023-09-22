@@ -41,7 +41,7 @@ function NewsBotton({dataNews, limit, setFavorites, newsFavorites }: NewsTypeNew
               </button>
             </div>
 
-            <button className="bg-azulClaro p-2 rounded-b-md font-medium w-full">
+            <button className="bg-lightBlue p-2 rounded-b-md font-medium w-full">
               <a href={item.link}>Leia a notícia aqui</a>
             </button>
           </article>
