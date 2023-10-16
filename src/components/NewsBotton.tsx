@@ -34,7 +34,7 @@ function NewsBotton({dataNews, limit, setFavorites, newsFavorites }: NewsTypeNew
               <button onClick={ () => {
                 setFavorites(item)
               }}>
-                {(newsFavorites.includes(item)) ? (
+                {(newsFavorites.find((i) => i.id === item.id)) ? (
                   <img className="animate-spin" src={ heartFillIcon } alt="svg favorite" />
                   ) : ( <img src={ heartRegularIcon } alt="svg favorite" />
                   ) }
