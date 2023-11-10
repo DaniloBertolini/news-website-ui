@@ -1,8 +1,8 @@
-# [Site de Notícias](https://danilobertolini.github.io/news-website-ui/)
+# :newspaper: [Site de Notícias](https://danilobertolini.github.io/news-website-ui/)
 
 Uma aplicação para gerenciar uma API das notícias do IBGE, no qual mostra as notícias mais recentes. 
 
-## Tecnologias
+## :bomb: Tecnologias
 
 - [REACT](https://react.dev/)
 - [VITE](https://vitejs.dev/)
@@ -11,14 +11,14 @@ Uma aplicação para gerenciar uma API das notícias do IBGE, no qual mostra as 
 - [TYPESCRIPT](https://www.typescriptlang.org/)
 - [TAILWIND](https://tailwindcss.com/)
 
-## Funcionalidades
+## :bulb: Funcionalidades
 
 - Notícias mais recentes do IBGE
 - Notícia completo através do link
 - Informação de quantos dias a notícia foi publicada
 - Favoritar as melhores notícias
 
-## Como acessar
+## :books: Como acessar
   Pode acessar através desse [deploy](https://danilobertolini.github.io/news-website-ui/), ou se preferir na máquina local, pode seguir abaixo.
   - Abra o terminal e faça o clone.
   ```bash
